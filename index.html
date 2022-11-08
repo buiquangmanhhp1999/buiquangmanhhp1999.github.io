@@ -86,15 +86,15 @@
 
       var settings = {
         particles: {
-          length: 500, // maximum amount of particles
+          length: 1500, // maximum amount of particles
 
-          duration: 2, // particle duration in sec
+          duration: 3, // particle duration in sec
 
           velocity: 100, // particle velocity in pixels/sec
 
           effect: -0.75, // play with this for a nice effect
 
-          size: 30, // particle size in pixels
+          size: 15, // particle size in pixels
         },
       };
 
@@ -224,7 +224,7 @@
             return --t * t * t + 1;
           }
 
-          var size = image.width * ease(this.age / settings.particles.duration);
+          var size = Math.abs(image.width -  image.width * ease(this.age / settings.particles.duration));
 
           context.globalAlpha = 1 - this.age / settings.particles.duration;
 
@@ -387,7 +387,7 @@
           context.moveTo(point.x, point.y);
 
           while (t < Math.PI) {
-            t += 0.01; // baby steps!
+            t += 0.1; // baby steps!
 
             point = to(t);
 
